@@ -19,6 +19,10 @@ export async function GET(
 
   const segment = await getSegment(segmentId);
 
+  if (!segment) {
+    return notFound();
+  }
+
   if (websiteId && !(await canViewWebsite(auth, websiteId))) {
     return unauthorized();
   }

@@ -274,11 +274,9 @@ export async function POST(request: Request) {
 
     return json({ cache: token, sessionId, visitId });
   } catch (e) {
-    const error = serializeError(e);
-
     // eslint-disable-next-line no-console
-    console.log(error);
+    console.log(serializeError(e));
 
-    return serverError({ errorObject: error });
+    return serverError();
   }
 }
