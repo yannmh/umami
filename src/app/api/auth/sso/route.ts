@@ -1,7 +1,7 @@
 import { saveAuth } from '@/lib/auth';
 import redis from '@/lib/redis';
 import { parseRequest } from '@/lib/request';
-import { json } from '@/lib/response';
+import { badRequest, json } from '@/lib/response';
 
 export async function POST(request: Request) {
   const { auth, error } = await parseRequest(request);
@@ -15,4 +15,6 @@ export async function POST(request: Request) {
 
     return json({ user: auth.user, token });
   }
+
+  return badRequest({ message: 'SSO is not enabled.' });
 }
