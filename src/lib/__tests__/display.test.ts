@@ -1,5 +1,11 @@
 jest.mock('../format', () => ({
   formatNumber: (n: number | string) => String(n),
+  truncateMiddle: (text: string, maxLength: number) => {
+    const chars = Array.from(text);
+    if (chars.length <= maxLength) return text;
+    const keep = Math.max(1, Math.floor((maxLength - 3) / 2));
+    return `${chars.slice(0, keep).join('')}...${chars.slice(-keep).join('')}`;
+  },
 }));
 
 import { formatCompactLabel } from '../display';
