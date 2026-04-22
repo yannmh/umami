@@ -1,4 +1,5 @@
 jest.mock('../format', () => ({
+  ...jest.requireActual('../format'),
   formatNumber: (n: number | string) => String(n),
 }));
 
