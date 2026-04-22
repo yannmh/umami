@@ -19,6 +19,8 @@
 
 ## 🚀 Getting Started
 
+A detailed getting started guide can be found at [umami.is/docs](https://umami.is/docs/).
+
 ---
 
 ## 🛠 Installing from Source
